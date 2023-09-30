@@ -1,0 +1,2 @@
+# SetMavenRepositoroes
+一个因为学校课程SpringBoot需要使用Maven仓库，而默认仓库位于境外，下载速度以及稳定性极差，遂产生了这个帮助同学一键更改Maven镜像至国内的小工具，在使用的的时候如果带上路径作为参数则直接将settings.xml配置到参数路径
