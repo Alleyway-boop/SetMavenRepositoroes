@@ -79,3 +79,10 @@ func AlertMessage(MavenOnMacPath string, v os.DirEntry) {
 			</repositories>`
 	fmt.Println(message)
 }
+func init() {
+	fmt.Println("Maven仓库设置工具")
+	fmt.Println("作者：yuanfang")
+	fmt.Println("邮箱：yuanfangwa.gmail.com")
+	//path := flag.String("path", "", "Maven安装路径")
+	//flag.Parse()
+}
