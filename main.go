@@ -10,10 +10,10 @@ import (
 var dir embed.FS
 
 func main() {
-	//go CheckMavenFolderExit()
+	go CheckMavenFolderExit()
 	MavenOnMacPath := ""
 	args := os.Args
-	//MavenOnMacPath = "/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/conf/"
+	MavenOnMacPath = "/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/conf/"
 	MavenOnMacPath = "./bin/"
 	if len(args) >= 2 {
 		MavenOnMacPath = args[1]
@@ -44,13 +44,13 @@ CheckMavenFolderExit
 */
 func CheckMavenFolderExit() {
 	DefaultPath := "~/.m2/"
-	DefaultPathdirs, err := os.ReadDir(DefaultPath)
+	DefaultPathDirs, err := os.ReadDir(DefaultPath)
 	if err != nil {
 		fmt.Println(".m2文件夹不存在，故忽略")
 		return
 	}
 	file, _ := dir.ReadFile("settings.xml")
-	for _, v := range DefaultPathdirs {
+	for _, v := range DefaultPathDirs {
 		if v.Name() == "settings.xml" {
 			err := os.WriteFile(DefaultPath+v.Name(), file, 0666)
 			if err != nil {
@@ -83,6 +83,9 @@ func init() {
 	fmt.Println("Maven仓库设置工具")
 	fmt.Println("作者：yuanfang")
 	fmt.Println("邮箱：yuanfangwa.gmail.com")
+	/*
+		todo 未完成 解析命令行参数
+	*/
 	//path := flag.String("path", "", "Maven安装路径")
 	//flag.Parse()
 }
